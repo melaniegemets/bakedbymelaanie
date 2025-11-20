@@ -27,12 +27,16 @@
 
 
     header {
+      height: 80px;
+      display: flex;
+      align-items: center;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       padding: 15px 5%;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.25);
+
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       display: flex;
@@ -175,6 +179,7 @@
 
     #home {
       position: relative;
+      padding-top: 90px;
     }
 
 
@@ -194,7 +199,7 @@
 
     #home img {
       width: 100%;
-      height: 100vh;
+      height: 80vh;
       object-fit: cover;
       filter: brightness(0.9);
       border-radius: 0 0 30px 30px;
@@ -411,6 +416,75 @@
       font-weight: bold;
     }
 
+    /* SECTION TESTIMONI */
+    .testimoni-section {
+      padding: 70px 20px;
+      background: #fff4ec;
+      text-align: center;
+    }
+
+    .testimoni-title {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #5a3e2b;
+      font-weight: 700;
+    }
+
+    .testimoni-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .testimoni-card {
+      background: #ffffff;
+      width: 300px;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .testimoni-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* FOTO TESTIMONI */
+    .testimoni-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #f3d1b3;
+    }
+
+    .testimoni-text {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #6a4b3a;
+      font-style: italic;
+    }
+
+    .testimoni-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #5a3e2b;
+    }
+
+    @media (max-width: 600px) {
+      .testimoni-title {
+        font-size: 26px;
+      }
+
+      .testimoni-card {
+        width: 100%;
+        max-width: 330px;
+      }
+    }
+
+
     /* 🍰 Popup Style */
     .popup {
       display: none;
@@ -482,20 +556,95 @@
       }
     }
 
+    .order-section {
+      padding: 60px 20px;
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .order-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #ff9eb3;
+    }
+
+    .img-preview {
+      width: 100%;
+      height: 200px;
+      background: #f7f7f7;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .img-preview img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .btn-order {
+      width: 100%;
+      padding: 14px;
+      margin-top: 10px;
+      background: #ff7fa5;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-order:hover {
+      background: #ff6992;
+    }
 
 
+
+
+    /* FOOTER STYLE */
     footer {
-      background: linear-gradient(180deg, #8B4513, #5a3e2b);
+      background: linear-gradient(180deg, #8B5E3C, #5a3e2b);
       color: #fffaf0;
       padding: 40px 8% 20px;
       border-top-left-radius: 30px;
       border-top-right-radius: 30px;
+      font-family: 'Poppins', sans-serif;
     }
 
     .footer-wrapper {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       flex-wrap: wrap;
       gap: 40px;
     }
@@ -509,59 +658,62 @@
     .footer-left img {
       height: 60px;
       border-radius: 50%;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     }
 
     .footer-brand h2 {
       color: #ffd7b5;
+      font-size: 1.5em;
     }
 
     .footer-brand p {
       color: #f5e0c7;
-      font-size: 0.9em;
+      font-size: 0.95em;
+      margin-top: 5px;
     }
 
     .footer-right {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
+      gap: 15px;
     }
 
     .footer-info p {
-      margin: 3px 0;
-      color: #fce4d6;
+      margin: 5px 0;
+      font-size: 0.95em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .footer-info a {
       color: #ffd7b5;
       text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-info a:hover {
+      color: #fff;
     }
 
     .footer-social {
       display: flex;
-      gap: 15px;
-      font-size: 1.2em;
+      gap: 20px;
+      font-size: 0.95em;
     }
 
     .footer-social a {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       color: #ffd7b5;
       text-decoration: none;
-      font-size: 0.9em;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
-
-
-    .footer-social text {
-      font-size: small;
-    }
-
 
     .footer-social a:hover {
       color: #fff;
-      transform: scale(1.2);
+      transform: scale(1.05);
     }
 
     .footer-bottom {
@@ -573,45 +725,45 @@
       font-size: 0.9em;
     }
 
-
-
-
     @media (max-width: 768px) {
-      .container-home {
+      .footer-wrapper {
         flex-direction: column;
+        align-items: center;
         text-align: center;
-      }
-
-      .tentang-kami-img {
-        width: 100%;
       }
 
       .footer-right {
         align-items: center;
       }
+
+      .footer-social {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 
+
 <body>
   <header>
     <div class="logo">
-      <img src="logo website kue.jpg" alt="">
+      <img src="logo website kue.jpg" alt="logo">
     </div>
 
-
-
     <div class="hamburger" id="hamburger"><i class='bx bx-menu'></i></div>
-
 
     <nav id="navbar">
       <a href="#home">Home</a>
       <a href="#tentang-kami">Tentang Kami</a>
       <a href="#menu">Menu</a>
+      <a href="#testimoni">testimoni</a>
+
+      <a href="#order">order</a>
       <a href="#footer">Footer</a>
     </nav>
   </header>
 
+  <!-- HERO -->
   <section id="home">
     <img src="newjpg.jpg" alt="Kue Coklat Klasik">
     <div class="home-text">
@@ -623,44 +775,48 @@
     </div>
   </section>
 
-
+  <!-- TENTANG KAMI -->
   <section id="tentang-kami">
     <div class="container-home">
       <img src="landing page.jpg" alt="tentang kami" class="tentang-kami-img">
+
       <div class="tentang-kami-text">
         <h1>Tentang Kami</h1>
+
+        <p><strong> Selamat datang di Baked by Melanie</strong> ,tempat di mana tepung, mentega, dan gula bekerja lembur
+          demi bikin kamu tersenyum. Kami percaya bahwa hidup itu kadang melelahkan, tapi kabar baiknya… kue selalu bisa
+          menolong!
+
+          Semua yang kami buat dipanggang dengan hati (dan sedikit drama dapur, tapi jangan khawatir—hasilnya tetap
+          manis). Dari cake lembut sampai roti yang wangi banget, kami selalu berusaha bikin kamu merasa seperti sedang
+          menikmati camilan buatan rumah sendiri—yang enak, hangat, dan bikin nagih.
+
+          Di sini, setiap adonan punya cerita, dan setiap topping ditempatkan dengan penuh cinta. Kami ingin jadi bagian
+          dari hari-harimu: entah kamu lagi merayakan ulang tahun, butuh “hadiah manis” untuk seseorang, atau sekadar
+          ingin memanjakan diri setelah hari yang panjang. Karena hey… kamu layak dapat kue, kan?
+
+          Terima kasih sudah mendukung usaha kecil kami. Semoga setiap gigitan membawa kebahagiaan kecil—yang lama-lama
+          berubah jadi bahagia besar.</p>
+
         <p>
-          <strong>Baked by Melanie</strong> menghadirkan berbagai pilihan kue artisan
-          dengan sentuhan rasa klasik dan tampilan modern.
-          Setiap produk kami dibuat segar setiap hari menggunakan bahan berkualitas tinggi, tanpa pengawet,
-          dan dengan penuh dedikasi.
-          Kami percaya — setiap kue punya cerita manisnya sendiri, dan kami ingin menjadi bagian dari cerita manismu.
+          <i class='bx bxs-map' style="color:#ff7b54; font-size:1.4em;"></i>
+          <span>Jl. pondok belimbing, Tangerang Selatan</span>
         </p>
 
         <p>
-          <strong>
-            <i class='bx bxs-map' style="color:#ff7b54; font-size:1.4em; vertical-align:middle;"></i>
-          </strong>
-          <span style="margin-left:6px; font-size:1.05em;">
-            Jl. pondok belimbing,Tangerang Selatan
-          </span>
+          <i class='bx bxl-whatsapp' style="color:#25D366; font-size:1.4em;"></i>
+          <span>+62 856-9312-1783</span>
         </p>
-
-        <p>
-          <strong>
-            <i class='bx bxl-whatsapp' style="color:#25D366; font-size:1.4em; vertical-align:middle;"></i>
-          </strong>
-          <span style="margin-left:6px; font-size:1.05em;">+62 856-9312-1783</span>
-        </p>
-
       </div>
     </div>
   </section>
 
-
+  <!-- MENU -->
   <section id="menu">
     <h1>Menu Kami</h1>
+
     <div class="menu-gallery">
+      <!-- Item -->
       <div class="menu-item">
         <img src="little blueberry tarts.jpg" alt="">
         <div class="menu-overlay">
@@ -732,6 +888,7 @@
           <p>Rp50.000</p>
         </div>
       </div>
+
       <div class="menu-item">
         <img src="kuuuwee.jpg" alt="">
         <div class="menu-overlay">
@@ -739,6 +896,7 @@
           <p>Rp65.000</p>
         </div>
       </div>
+
       <div class="menu-item">
         <img src="kuwe lagi.jpg" alt="">
         <div class="menu-overlay">
@@ -746,16 +904,44 @@
           <p>Rp40.000</p>
         </div>
       </div>
+
       <div class="menu-item">
         <img src="kuwee enak.jpg" alt="">
         <div class="menu-overlay">
-          <h3>Red Velvet cake</h3>
+          <h3>Red Velvet Cake</h3>
           <p>Rp55.000</p>
         </div>
       </div>
     </div>
 
-    <!-- 🍪 Popup Belanja -->
+    <section id="testimoni" class="testimoni-section">
+      <h2 class="testimoni-title">Apa Kata Mereka?</h2>
+
+      <div class="testimoni-container">
+
+        <div class="testimoni-card">
+          <img src="adan.jpg" class="testimoni-img">
+          <p class="testimoni-text">“Kuenya lembut banget! Manisnya pas dan selalu fresh. Pasti repeat order terus!”</p>
+          <h4 class="testimoni-name">fadlan</h4>
+        </div>
+
+        <div class="testimoni-card">
+          <img src="melankecil.jpg" class="testimoni-img">
+          <p class="testimoni-text">“Pelayanan ramah, pengiriman cepat, dan tampilannya selalu cantik. Perfect!”</p>
+          <h4 class="testimoni-name">mel</h4>
+        </div>
+
+        <div class="testimoni-card">
+          <img src="betiga.jpg" class="testimoni-img">
+          <p class="testimoni-text">“Cake ulang tahunnya lucu banget, sampe ga tega buat makannyaa. Thank you!”</p>
+          <h4 class="testimoni-name">Aqilah</h4>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Popup -->
     <div id="popup" class="popup">
       <div class="popup-content">
         <span class="close-btn">&times;</span>
@@ -764,94 +950,183 @@
         <a href="#menu" class="popup-btn">Lihat Menu</a>
       </div>
     </div>
-
   </section>
 
+  <section id="order" class="order-section">
+    <h2>Form Pemesanan</h2>
 
+    <form id="orderForm">
+      <div class="form-group">
+        <label>Nama Lengkap</label>
+        <input type="text" id="nama" required placeholder="Masukkan nama kamu...">
+      </div>
 
+      <div class="form-group">
+        <label>Pilihan Pesanan</label>
+        <input type="text" id="pesanan" required placeholder="Contoh: custom birthday cake 1 tier">
+      </div>
+
+      <div class="form-group">
+        <label>Tanggal Pengambilan</label>
+        <input type="date" id="tanggal" required>
+      </div>
+
+      <div class="form-group">
+        <label>Upload Foto Referensi (opsional)</label>
+        <input type="file" id="gambar" accept="image/*">
+      </div>
+
+      <div class="img-preview" id="imgPreview">
+        <p>Preview Foto Akan Muncul Disini</p>
+      </div>
+
+      <div class="form-group">
+        <label>Catatan Tambahan</label>
+        <textarea id="catatan" rows="4"
+          placeholder="Contoh: warna pastel, tidak terlalu manis, tulis nama ‘Melanie’..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-order">Kirim ke WhatsApp</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
   <footer id="footer">
     <div class="footer-wrapper">
+
+      <!-- Bagian Kiri: Logo & Brand -->
       <div class="footer-left">
         <img src="logo website kue.jpg" alt="logo">
         <div class="footer-brand">
           <h2>Baked by Melanie</h2>
-          <p>Kelezatan manis yang dibuat dengan cinta</p>
+          <p>Manis dalam setiap gigitan 🍰</p>
         </div>
       </div>
 
+      <!-- Bagian Kanan: Info & Sosial Media -->
       <div class="footer-right">
         <div class="footer-info">
-          <p><strong>Email:</strong> <a href="mailto:info@bakedbymelanie.com">info@bakedbymelanie.com</a></p>
-          <p><strong>Telepon:</strong> <a href="tel:+6285693121783">+62 856-9312-1783</a></p>
-          <p><strong>Alamat:</strong> Jl. pondok belimbing Gg.H.Asnawi rt:03 rw:04 ,Tangerang Selatan</p>
+          <p><i class='bx bx-map'></i> Jl. Pondok Belimbing, Tangerang Selatan</p>
         </div>
+
         <div class="footer-social">
-          <a href="https://instagram.com/@mlanieef" target="_blank">
-            <i class='bx bxl-instagram'>@mlanieef</i>
+          <a href="https://wa.me/6285693121783" target="_blank">
+            <i class='bx bxl-whatsapp'></i> WhatsApp
           </a>
-          <a href="https://wa.6285693121783?text=Halo%2C%20saya%20mau%20pesan%20kue" target="_blank">
-            <i class='bx bxl-whatsapp'></i>
-            <span>Chat via WhatsApp</span>
+          <a href="https://www.instagram.com/mlanieef/" target="_blank">
+            <i class='bx bxl-instagram'></i> Instagram
           </a>
-
-
-
 
         </div>
+
+
       </div>
+
+
+    </div>
+
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 <strong>Baked by Melanie</strong> </p>
+      © 2025 Baked by Melanie. Made with ❤️
     </div>
   </footer>
 
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const nav = document.getElementById('navbar');
-    const header = document.querySelector('header');
 
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('active');
 
-      hamburger.innerHTML = nav.classList.contains('active')
-        ? "<i class='bx bx-x'></i>"
-        : "<i class='bx bx-menu'></i>";
+  <<script>
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('navbar');
+  const header = document.querySelector('header');
+
+  // Hamburger menu
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    hamburger.innerHTML = nav.classList.contains('active')
+      ? "<i class='bx bx-x'></i>"
+      : "<i class='bx bx-menu'></i>";
+  });
+
+  document.querySelectorAll('#navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      hamburger.innerHTML = "<i class='bx bx-menu'></i>";
     });
-    document.querySelectorAll('#navbar a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-        hamburger.innerHTML = "<i class='bx bx-menu'></i>";
-      });
-    });
+  });
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-  </script>
+  // Header scroll effect
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+  });
 
-  <script>
-    const shopBtn = document.querySelector('.shop-btn');
-    const popup = document.getElementById('popup');
-    const closeBtn = document.querySelector('.close-btn');
+  // Popup
+  const shopBtn = document.querySelector('.shop-btn');
+  const popup = document.getElementById('popup');
+  const closeBtn = document.querySele.ibbctor('.close-btn');
+  const menuSection = document.getElementById('menu');
 
-    shopBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      popup.style.display = 'flex';
-    });
+  shopBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    popup.style.display = 'flex';
+  });
 
-    closeBtn.addEventListener('click', () => {
-      popup.style.display = 'none';
-    });
+  closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
 
-    window.addEventListener('click', (e) => {
-      if (e.target === popup) popup.style.display = 'none';
-    });
-  </script>
+  window.addEventListener('click', (e) => {
+    if (e.target === popup) popup.style.display = 'none';
+  });
+
+  window.addEventListener('scroll', () => {
+    const menuTop = menuSection.offsetTop;
+    const scrollPos = window.scrollY + window.innerHeight / 2;
+    if (scrollPos >= menuTop) popup.style.display = 'none';
+  });
+
+  // Preview Gambar
+  const fileInput = document.getElementById("gambar");
+  const imgPreview = document.getElementById("imgPreview");
+
+  fileInput.addEventListener("change", function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    if (file.size > 2 * 1024 * 1024) { // 2MB limit
+      alert("Ukuran file maksimal 2MB");
+      fileInput.value = "";
+      imgPreview.innerHTML = "<p>Preview Foto Akan Muncul Disini</p>";
+      return;
+    }
+
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+
+    imgPreview.innerHTML = "";
+    imgPreview.appendChild(img);
+  });
+
+  // Kirim ke WhatsApp
+  document.getElementById("orderForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let nama = document.getElementById("nama").value;
+    let pesanan = document.getElementById("pesanan").value;
+    let tanggal = document.getElementById("tanggal").value;
+    let catatan = document.getElementById("catatan").value;
+    let nomorWA = "6285693121783";
+
+    let message =
+      `Halo, saya mau pesan.%0A%0A` +
+      `Nama: ${nama}%0A` +
+      `Pesanan: ${pesanan}%0A` +
+      `Tanggal Pengambilan: ${tanggal}%0A` +
+      `Catatan: ${catatan}%0A%0A` +
+      `Foto referensi sudah saya upload di website (akan saya kirim lewat chat).`;
+
+    window.open(`https://wa.me/${nomorWA}?text=${message}`, "_blank");
+  });
+</script>
 
 
 
