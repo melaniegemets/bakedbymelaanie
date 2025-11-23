@@ -84,14 +84,14 @@
     #hamburger {
       display: none;
       font-size: 2em;
-      color: #5a3e2b;
+      color: whitesmoke;
       cursor: pointer;
       z-index: 10001;
       transition: color 0.3s ease;
     }
 
     header.scrolled #hamburger {
-      color: #5a3e2b;
+      color:whitesmoke;
     }
 
     @media (max-width: 768px) {
@@ -307,6 +307,69 @@
     }
 
 
+/*  POPUP  */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+/* Saat popup muncul */
+.popup.show {
+  display: flex;
+}
+
+
+/* Card popup */
+.popup-content {
+  background: #ffffff;
+  width: 85%;
+  max-width: 380px;
+  padding: 25px 30px;
+  border-radius: 18px;
+  text-align: center;
+  animation: pop 0.25s ease;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* Animasi masuk */
+@keyframes pop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Judul popup */
+.popup-content h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #5a3d2b;
+  font-weight: 700;
+}
+
+/* Tombol dalam popup */
+#popupMenuBtn {
+  background: #b87333;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#popupMenuBtn:hover {
+  background: #a9652c;
+  transform: translateY(-3px);
+}
+
 
 
 
@@ -490,20 +553,6 @@
     }
 
 
-    /* 🍰 Popup Style */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(4px);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
 
     .popup-content {
       background: #fff;
@@ -724,7 +773,7 @@
 
     .footer-social a:hover {
       color: #fff;
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
 
     .footer-bottom {
@@ -768,6 +817,8 @@
       <a href="#home">Home</a>
       <a href="#tentang-kami">Tentang Kami</a>
       <a href="#menu">Menu</a>
+      <a href="#testimoni">testimoni</a>
+      <a href="#order">order</a>
       <a href="#footer">Footer</a>
     </nav>
   </header>
@@ -779,9 +830,22 @@
         <span class="brand-text">Baked by Melanie</span>
       </h1>
       <p>Tempat di mana setiap kue dibuat dengan cinta dan rasa istimewa.</p>
-      <a href="#menu" class="shop-btn">Belanja Sekarang</a>
+      <a href="#shop-btn" class="shop-btn">Belanja Sekarang</a>
+
+      <!-- 🍪 Popup Belanja -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2>Selamat Datang di Dunia Manis Kami 🍰</h2>
+        <p>Ayo jelajahi menu spesial kami hari ini!</p>
+        <a href="#menu" class="popup-btn">Lihat Menu</a>
+      </div>
+    </div>
+
     </div>
   </section>
+  
+
 
 
   <section id="tentang-kami">
@@ -915,15 +979,7 @@
       </div>
     </div>
 
-    <!-- 🍪 Popup Belanja -->
-    <div id="popup" class="popup">
-      <div class="popup-content">
-        <span class="close-btn">&times;</span>
-        <h2>Selamat Datang di Dunia Manis Kami 🍰</h2>
-        <p>Ayo jelajahi menu spesial kami hari ini!</p>
-        <a href="#menu" class="popup-btn">Lihat Menu</a>
-      </div>
-    </div>
+    
 
   </section>
 
@@ -954,16 +1010,7 @@
     </section>
 
 
-    <!-- Popup -->
-    <div id="popup" class="popup">
-      <div class="popup-content">
-        <span class="close-btn">&times;</span>
-        <h2>Selamat Datang di Dunia Manis Kami 🍰</h2>
-        <p>Ayo jelajahi menu spesial kami hari ini!</p>
-        <a href="#menu" class="popup-btn">Lihat Menu</a>
-      </div>
-    </div>
-  </section>
+    
 
   <section id="order" class="order-section">
     <h2>Form Pemesanan</h2>
@@ -1066,26 +1113,164 @@
   </script>
 
   <script>
-    const shopBtn = document.querySelector('.shop-btn');
-    const popup = document.getElementById('popup');
-    const closeBtn = document.querySelector('.close-btn');
+document.addEventListener("DOMContentLoaded", function () {
+  
+  const shopBtn = document.querySelector('.shop-btn');       // tombol section 1
+  const popup = document.getElementById('popup');            // popup
+  const popupMenuBtn = document.getElementById('popupMenuBtn'); // tombol dalam popup
 
-    shopBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      popup.style.display = 'flex';
+  // Munculkan popup saat tombol section 1 ditekan
+  shopBtn.addEventListener("click", function () {
+    popup.classList.add("show");
+  });
+
+  // Kalau tombol di popup ditekan → tutup popup + scroll ke menu
+  popupMenuBtn.addEventListener("click", function () {
+    popup.classList.remove("show");
+
+    document.getElementById("menu").scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+
+});
+</script>
+
+
+   
+
+  <script>
+  const orderForm = document.getElementById('orderForm');
+
+  orderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value;
+    const pesanan = document.getElementById('pesanan').value;
+    const tanggal = document.getElementById('tanggal').value;
+    const catatan = document.getElementById('catatan').value;
+
+    const waMessage = `Halo Melanie, saya mau pesan kue:\nNama: ${nama}\nPesanan: ${pesanan}\nTanggal Ambil: ${tanggal}\nCatatan: ${catatan}`;
+    const waLink = `https://wa.me/6285693121783?text=${encodeURIComponent(waMessage)}`;
+
+    window.open(waLink, '_blank');
+  });
+
+  const gambarInput = document.getElementById('gambar');
+  const imgPreview = document.getElementById('imgPreview');
+
+  gambarInput.addEventListener('change', () => {
+    const file = gambarInput.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        imgPreview.innerHTML = `<img src="${reader.result}" alt="Preview">`;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      imgPreview.innerHTML = `<p>Preview Foto Akan Muncul Disini</p>`;
+    }
+  });
+
+s
+  const popup = document.getElementById("popup");
+  const openBtn = document.getElementById("openPopup");
+  const closeBtn = document.querySelector(".close-btn");
+
+  openBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    popup.style.opacity = "1";
+    popup.style.pointerEvents = "auto";
+    popup.style.display = "flex";
+
+    document.querySelector("#menu").scrollIntoView({ behavior: "smooth" });
+
+    setTimeout(() => {
+      popup.style.opacity = "0";
+      popup.style.pointerEvents = "none";
+      setTimeout(() => popup.style.display = "none", 300);
+    }, 3000);
+  });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const popup = document.getElementById("popup");
+  const openBtn = document.getElementById("openPopup");
+  const goMenu = document.getElementById("goMenu");
+
+  // Munculkan popup
+  openBtn.addEventListener("click", function () {
+    popup.classList.add("show");
+  });
+
+  // Tombol MENU di dalam popup
+  goMenu.addEventListener("click", function () {
+    popup.classList.remove("show");
+
+    document.getElementById("menu").scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+
+});
+ 
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const shopBtn = document.querySelector('.shop-btn'); // tombol section 1
+    const popup = document.getElementById('popup'); // popup
+    const popupMenuBtn = document.getElementById('popupMenuBtn'); // tombol popup
+
+    // Munculkan popup
+    shopBtn.addEventListener("click", function () {
+      popup.classList.add("show");
     });
 
-    closeBtn.addEventListener('click', () => {
-      popup.style.display = 'none';
+    // Klik tombol di popup → tutup popup + scroll ke menu
+    popupMenuBtn.addEventListener("click", function () {
+      popup.classList.remove("show");
+
+      document.getElementById("menu").scrollIntoView({
+        behavior: "smooth"
+      });
     });
 
-    window.addEventListener('click', (e) => {
-      if (e.target === popup) popup.style.display = 'none';
-    });
+  });
   </script>
 
+  <!-- JS di sini -->
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
 
+    const shopBtn = document.querySelector('.shop-btn'); // tombol section 1
+    const popup = document.getElementById('popup'); // popup
+    const popupMenuBtn = document.getElementById('popupMenuBtn'); // tombol popup
+
+    // Munculkan popup
+    shopBtn.addEventListener("click", function () {
+      popup.classList.add("show");
+    });
+
+    // Klik tombol di popup → tutup popup + scroll ke menu
+    popupMenuBtn.addEventListener("click", function () {
+      popup.classList.remove("show");
+
+      document.getElementById("menu").scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+
+  });
+  </script>
 
 </body>
+</html>
+
+</script>
+
+</script>
+
+</body>
+
 
 </html>
